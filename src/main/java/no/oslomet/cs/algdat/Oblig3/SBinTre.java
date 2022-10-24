@@ -51,6 +51,8 @@ public class SBinTre<T> {
         Node<T> p = rot;
 
         while (p != null) {
+
+            
             int cmp = comp.compare(verdi, p.verdi);
             if (cmp < 0) p = p.venstre;
             else if (cmp > 0) p = p.høyre;
