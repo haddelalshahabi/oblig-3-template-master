@@ -258,7 +258,6 @@ public class SBinTre<T> {
         ArrayDeque<Node> kø = new ArrayDeque<>();
 
         kø.addLast(rot);
-
         while (!kø.isEmpty()){
             Node<T> nåværende = kø.removeFirst();
 
@@ -273,12 +272,16 @@ public class SBinTre<T> {
             liste.add(nåværende.verdi);
         }
         return liste;
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     //Oppgave 5):
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        SBinTre<K> tre = new SBinTre<>(c);
+        for (int i = 0; i < data.size(); i++){
+            tre.leggInn(data.get(i));
+        }
+        return tre;
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
 
