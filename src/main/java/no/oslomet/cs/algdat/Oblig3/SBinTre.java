@@ -117,7 +117,17 @@ public class SBinTre<T> {
 
     //Oppgave 6):
     public boolean fjern(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (verdi == null){
+            return false;
+        }
+
+        Node<T> r = rot;
+        Node<T> n = null;
+
+        while (r != null){
+            int sa
+        }
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     //Oppgave 6):
