@@ -50,7 +50,7 @@ public class SBinTre<T> {
 
     //Koder til oppgave 2)
     public boolean inneholder(T verdi) {
-        if (verdi == null) return false;
+        if (verdi == null)return false;
 
         Node<T> p = rot;
 
@@ -88,7 +88,7 @@ public class SBinTre<T> {
         return antall == 0;
     }
 
-    //Oppgave 1)
+    //Oppgave 1):
     public boolean leggInn(T verdi) {
         Objects.requireNonNull(verdi, "Det er ikke lov med null-verdier!");
 
@@ -126,11 +126,15 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
-    //Oppgave 2)
+    //Oppgave 2):
     public int antall(T verdi) {
         int antallOpptreden = 0;
-        
 
+        if(verdi == null){
+            return 0;
+        }
+
+        //r-står for pekkeren
         Node<T> r = rot;
         while(r != null){
             int sammenlikn = comp.compare(verdi, r.verdi);
@@ -151,12 +155,48 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 3):
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (p == null){
+            throw new UnsupportedOperationException("Treet vårt er tomt!");
+        }
+
+        while (true){
+            if (p.venstre != null){
+                p = p.venstre;
+            } else if (p.høyre != null){
+                p = p.høyre;
+            } else {
+                return p;
+            }
+        }
+
     }
 
+    //Oppgave 3):
     private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        if (p == null){
+            throw new UnsupportedOperationException("Treet vårt er tomt!");
+        }
+
+        else if (p.forelder == null){
+            p = null;
+        }
+
+        else if (p == p.forelder.høyre){
+            p = p.forelder;
+        }
+
+        else if (p == p.forelder.venstre){
+            if (p.forelder.høyre == null){
+                p = p.forelder;
+            }
+            else {
+                p = førstePostorden(p.forelder.høyre);
+            }
+        }
+        return p;
     }
 
     public void postorden(Oppgave<? super T> oppgave) {
