@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
@@ -51,8 +52,6 @@ public class SBinTre<T> {
         Node<T> p = rot;
 
         while (p != null) {
-
-            
             int cmp = comp.compare(verdi, p.verdi);
             if (cmp < 0) p = p.venstre;
             else if (cmp > 0) p = p.høyre;
@@ -84,8 +83,34 @@ public class SBinTre<T> {
         return antall == 0;
     }
 
+    //Oppgave 1)
     public boolean leggInn(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        Objects.requireNonNull(verdi, "Det er ikke lov med null-verdier!");
+
+        Node<T> r = rot;
+        Node<T> n = null;
+        int sammenlikn = 0;
+
+        while (r != null){
+            n = r;
+            sammenlikn = comp.compare(verdi,r.verdi);
+            r = sammenlikn < 0 ? r.venstre : r.høyre;
+        }
+
+        r = new Node<>(verdi,n);
+
+        if (n == null){
+            rot = r;
+        } else if (sammenlikn < 0){
+            n.venstre = r;
+        }else {
+            n.høyre = r;
+        }
+
+        antall ++;
+        endringer ++;
+        return true;
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public boolean fjern(T verdi) {
