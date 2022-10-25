@@ -126,9 +126,21 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 2) hjelpemetodet
+    //Mer kompakt og
+    /*public int antall2(T verdi, Node<T> node) {
+        if(node == null){
+            return 0;
+        }
+        return antall2(verdi, node.venstre) + antall2(verdi, node.høyre) + (node.verdi.equals(verdi) ? 1 : 0);
+    }
+     */
+
     //Oppgave 2):
     public int antall(T verdi) {
-        int antallOpptreden = 0;
+        //return antall2(verdi, rot);
+        //med reksjon
+
 
         if(verdi == null){
             return 0;
@@ -136,13 +148,15 @@ public class SBinTre<T> {
 
         //r-står for pekkeren
         Node<T> r = rot;
+
+        int antallOpptreden = 0;
         while(r != null){
             int sammenlikn = comp.compare(verdi, r.verdi);
             if (sammenlikn < 0){
                 r = r.venstre;
             }else {
-                if (sammenlikn == 0){
-                    antallOpptreden ++;
+                if (sammenlikn == 0) {
+                    antallOpptreden++;
                     r = r.høyre;
                 }
             }
