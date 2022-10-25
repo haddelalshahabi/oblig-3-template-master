@@ -67,6 +67,7 @@ public class Oblig3Test {
                     ("Oppgave 2b: Skal ikke kaste unntak her!");
         }
 
+
         // Nytt tre
         tre = new SBinTre<>(Comparator.naturalOrder());
         int[] a = {1, 7, 1, 6, 1, 5, 1, 4, 1, 1, 1, 3};
