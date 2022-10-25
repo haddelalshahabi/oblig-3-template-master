@@ -213,14 +213,27 @@ public class SBinTre<T> {
         return p;
     }
 
+    //Oppgave 4)
     public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (rot == null){
+            return;
+        }
+
+        Node<T> n = førstePostorden(rot);
+        oppgave.utførOppgave(n.verdi);
+
+        Node<T> r = nestePostorden(n);
+        while (r != null){
+            oppgave.utførOppgave(r.verdi);
+            r = nestePostorden(r);
+        }
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 4)
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
-
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
