@@ -3,10 +3,7 @@ package no.oslomet.cs.algdat.Oblig3;
 
 import com.sun.source.tree.WhileLoopTree;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.StringJoiner;
+import java.util.*;
 
 public class SBinTre<T> {
     private static final class Node<T>   // en indre nodeklasse
@@ -118,10 +115,12 @@ public class SBinTre<T> {
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 6):
     public boolean fjern(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 6):
     public int fjernAlle(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
@@ -165,6 +164,7 @@ public class SBinTre<T> {
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 6):
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
@@ -213,7 +213,7 @@ public class SBinTre<T> {
         return p;
     }
 
-    //Oppgave 4)
+    //Oppgave 4):
     public void postorden(Oppgave<? super T> oppgave) {
         if (rot == null){
             return;
@@ -235,6 +235,7 @@ public class SBinTre<T> {
         postordenRecursive(rot, oppgave);
     }
 
+    //Oppgave 4):
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
         if (p == null){
             return;
@@ -251,10 +252,31 @@ public class SBinTre<T> {
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 5):
     public ArrayList<T> serialize() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        ArrayList<T> liste = new ArrayList<>();
+        ArrayDeque<Node> kø = new ArrayDeque<>();
+
+        kø.addLast(rot);
+
+        while (!kø.isEmpty()){
+            Node<T> nåværende = kø.removeFirst();
+
+            if (nåværende.venstre != null){
+                kø.addLast(nåværende.venstre);
+            }
+
+            if (nåværende.høyre != null){
+                kø.addLast(nåværende.høyre);
+            }
+
+            liste.add(nåværende.verdi);
+        }
+        return liste;
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 5):
     static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
