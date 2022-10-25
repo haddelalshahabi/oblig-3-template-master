@@ -234,8 +234,21 @@ public class SBinTre<T> {
     public void postordenRecursive(Oppgave<? super T> oppgave) {
         postordenRecursive(rot, oppgave);
     }
+
     private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (p == null){
+            return;
+        }
+
+        if (p.venstre != null){
+            postordenRecursive(p.venstre, oppgave);
+        }
+
+        if (p.høyre != null){
+            postordenRecursive(p.høyre, oppgave);
+        }
+        oppgave.utførOppgave(p.verdi);
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public ArrayList<T> serialize() {
