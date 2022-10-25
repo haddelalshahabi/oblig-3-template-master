@@ -1,6 +1,8 @@
 package no.oslomet.cs.algdat.Oblig3;
 
 
+import com.sun.source.tree.WhileLoopTree;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
@@ -46,6 +48,7 @@ public class SBinTre<T> {
         comp = c;
     }
 
+    //Koder til oppgave 2)
     public boolean inneholder(T verdi) {
         if (verdi == null) return false;
 
@@ -61,6 +64,7 @@ public class SBinTre<T> {
         return false;
     }
 
+    //koder til oppgave 2)
     public int antall() {
         return antall;
     }
@@ -79,6 +83,7 @@ public class SBinTre<T> {
         return s.toString();
     }
 
+    //Koder til oppgave 2)
     public boolean tom() {
         return antall == 0;
     }
@@ -121,8 +126,10 @@ public class SBinTre<T> {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
+    //Oppgave 2)
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        
+        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     public void nullstill() {
