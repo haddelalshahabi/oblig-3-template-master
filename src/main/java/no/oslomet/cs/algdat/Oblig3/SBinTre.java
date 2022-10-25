@@ -128,7 +128,21 @@ public class SBinTre<T> {
 
     //Oppgave 2)
     public int antall(T verdi) {
-        
+        int antallOpptreden = 0;
+
+        Node<T> r = rot;
+        while(r != null){
+            int sammenlikn = comp.compare(verdi, r.verdi);
+            if (sammenlikn < 0){
+                r = r.venstre;
+            }else {
+                if (sammenlikn == 0){
+                    antallOpptreden ++;
+                    r = r.høyre;
+                }
+            }
+        }
+        return  antallOpptreden;
         //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
