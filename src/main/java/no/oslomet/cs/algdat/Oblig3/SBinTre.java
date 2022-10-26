@@ -181,7 +181,13 @@ public class SBinTre<T> {
 
     //Oppgave 6):
     public int fjernAlle(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        int antallFjernet = 0;
+        if (!tom()){
+            while (fjern(verdi)){
+                antallFjernet ++;
+            }
+        }
+        return  antallFjernet;
     }
 
     //Oppgave 2) hjelpemetodet
@@ -225,8 +231,15 @@ public class SBinTre<T> {
 
     //Oppgave 6):
     public void nullstill() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        if (!tom()) {
+            nullstill(rot);
+        }
+        rot = null;
+        antall = 0;
+        endringer = 0;
     }
+
+    
 
     //Oppgave 3):
     private static <T> Node<T> førstePostorden(Node<T> p) {
