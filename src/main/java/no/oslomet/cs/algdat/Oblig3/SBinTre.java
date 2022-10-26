@@ -125,9 +125,58 @@ public class SBinTre<T> {
         Node<T> n = null;
 
         while (r != null){
-            int sa
+            int sammenlikn = comp.compare(verdi, r.verdi);
+            if (sammenlikn < 0){
+                n = r;
+                r = r.venstre;
+            } else if (sammenlikn > 0){
+                n = r;
+                r = r.høyre;
+            }else {
+                break;
+            }
         }
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
+
+        if (r == null){
+            return false;
+        }
+
+        if (r.venstre == null || r.høyre == null){
+            Node<T> a = r.venstre != null ? r.venstre : r.høyre;
+            if (r == rot){
+                rot = a;
+            }else if (r == n.venstre){
+                n.venstre = a;
+                if (a != null){
+                    a.forelder = n;
+                }
+            } else{
+                n.høyre = a;
+            }
+
+            if (a != null){
+                a.forelder = n;
+            }
+        }else {
+            Node<T> b = r;
+            Node<T> p = r.høyre;
+
+            while (p.venstre != null){
+                b = p;
+                p = p.venstre;
+            }
+
+            r.verdi = p.verdi;
+
+            if (b != r){
+                b.venstre = p.høyre;
+            }else{
+                b.høyre = p.høyre;
+            }
+        }
+        endringer++;
+        antall--;
+        return  true;
     }
 
     //Oppgave 6):
