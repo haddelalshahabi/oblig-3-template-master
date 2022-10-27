@@ -112,7 +112,6 @@ public class SBinTre<T> {
         antall ++;
         endringer ++;
         return true;
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
 
     //Oppgave 6):
@@ -121,8 +120,7 @@ public class SBinTre<T> {
             return false;
         }
 
-        Node<T> r = rot;
-        Node<T> n = null;
+        Node<T> r = rot, n = null;
 
         while (r != null){
             int sammenlikn = comp.compare(verdi, r.verdi);
@@ -158,8 +156,7 @@ public class SBinTre<T> {
                 a.forelder = n;
             }
         }else {
-            Node<T> b = r;
-            Node<T> p = r.høyre;
+            Node<T> b = r, p = r.høyre;
 
             while (p.venstre != null){
                 b = p;
@@ -191,20 +188,22 @@ public class SBinTre<T> {
     }
 
     //Oppgave 2) hjelpemetodet
-    //Mer kompakt og
-    /*public int antall2(T verdi, Node<T> node) {
+
+    public int antall2(T verdi, Node<T> node) {
         if(node == null){
             return 0;
         }
         return antall2(verdi, node.venstre) + antall2(verdi, node.høyre) + (node.verdi.equals(verdi) ? 1 : 0);
     }
-     */
+
 
     //Oppgave 2):
     public int antall(T verdi) {
-        //return antall2(verdi, rot);
-        //med reksjon
+        return antall2(verdi, rot);
 
+        //med reaksjon
+        /*
+        int antallOpptreden = 0;
 
         if(verdi == null){
             return 0;
@@ -212,8 +211,6 @@ public class SBinTre<T> {
 
         //r-står for pekkeren
         Node<T> r = rot;
-
-        int antallOpptreden = 0;
         while(r != null){
             int sammenlikn = comp.compare(verdi, r.verdi);
             if (sammenlikn < 0){
@@ -226,7 +223,7 @@ public class SBinTre<T> {
             }
         }
         return  antallOpptreden;
-        //throw new UnsupportedOperationException("Ikke kodet ennå!");
+         */
     }
 
     //Oppgave 6):
@@ -239,7 +236,14 @@ public class SBinTre<T> {
         endringer = 0;
     }
 
-    
+    public void nullstill(Node<T> rot){
+        if (!tom()){
+            nullstill(rot);
+        }
+        this.rot = null;
+        antall = 0;
+        endringer = 0;
+    }
 
     //Oppgave 3):
     private static <T> Node<T> førstePostorden(Node<T> p) {
