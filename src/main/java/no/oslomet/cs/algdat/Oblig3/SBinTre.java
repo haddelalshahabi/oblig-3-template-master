@@ -114,6 +114,7 @@ public class SBinTre<T> {
         return true;
     }
 
+
     //Oppgave 6):
     public boolean fjern(T verdi) {
         if (verdi == null){
@@ -227,23 +228,26 @@ public class SBinTre<T> {
     }
 
     //Oppgave 6):
-    public void nullstill() {
-        if (!tom()) {
-            nullstill(rot);
-        }
+    public void nullstill()  {
+        nullstill(rot);
         rot = null;
         antall = 0;
         endringer = 0;
     }
 
-    public void nullstill(Node<T> rot){
-        if (!tom()){
-            nullstill(rot);
-        }
-        this.rot = null;
-        antall = 0;
-        endringer = 0;
+    //Oppgave 6):
+    public void nullstill(Node<T> node) {
+        if(node == null)
+            return;
+        nullstill(node.venstre);
+        nullstill(node.høyre);
+        node.verdi = null;
+        node.venstre = null;
+        node.høyre = null;
+        node.forelder = null;
+
     }
+
 
     //Oppgave 3):
     private static <T> Node<T> førstePostorden(Node<T> p) {

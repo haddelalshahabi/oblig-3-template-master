@@ -1,7 +1,7 @@
 # Obligatorisk oppgave 3 i Algoritmer og Datastrukturer
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
-* Navn Hadil Alshihabi, S362080, s36208+@oslomet.no
+* Navn Hadil Alshihabi, S362080, s36208@oslomet.no
 
 
 # Oppgavebeskrivelse
@@ -13,6 +13,10 @@ I oppgave 2 så brukte jeg reaksjon for å utføre oppgaven men den passerte ald
 metodet som er mer kompakt. Jeg vet det er vanskjelig å forstå og den er ikke relvant i vårt oblig men jeg fikk skrevet den 
 ved hjelp fra en studentassistent. 
 
-I oppgave 3 brukte jeg de hjelpemetodene som er private for å sikre at det ikke går inn en nullreferanse.
+I oppgave 3 brukte jeg Programkode 5.1.7 fra kompendiet for å løse oppgaven. Jeg brukte if-setening og while-løkka for 
+å retunere første node i postorden med r som rot. 
 
-I oppgave 4 
+I oppgave 4 har jeg brukt funksjonen nestePostorden fra forrige oppgave hvor jeg finner den første noden r i postorden. 
+Jeg har brukt en While-løkka kall for r = nestePostorden(r); hvor den gir den neste osv. til r blir null. 
+
+I oppgave 5 
