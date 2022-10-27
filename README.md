@@ -19,4 +19,11 @@ I oppgave 3 brukte jeg Programkode 5.1.7 fra kompendiet for å løse oppgaven. J
 I oppgave 4 har jeg brukt funksjonen nestePostorden fra forrige oppgave hvor jeg finner den første noden r i postorden. 
 Jeg har brukt en While-løkka kall for r = nestePostorden(r); hvor den gir den neste osv. til r blir null. 
 
-I oppgave 5 
+I opgave 5 bruker jeg en serialize-metoden og en kø til å traversere treet. Deserialize funksjoner tar imot arrayet og 
+legger inn verdiene om igjen i nivå orden. 
+
+I oppgave 6 bruker jeg tre funksjoner. I fjern metoden bruker jeg til å retunere false dersom treet har ingen nullverdier og sammenlinger vi.
+I fjernAlle metoden bruker jeg if-setning for å sjekke om treet ikke er tomt og bruker en while-løkke for å returnere antallet forekomster. 
+Til slutt bruker jeg nullstill funksjonen for å sette rot til null og antall til 0.
+
+
